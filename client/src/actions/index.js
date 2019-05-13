@@ -17,6 +17,9 @@ export const setRegions = (regions) => {
 }
 
 export const setHutsToRegions = (hutsToRegions) => {
+  for (const values of Object.values(hutsToRegions)) {
+    values.sort(((a, b) => a.name.localeCompare(b.name)))
+  }
   return {
     type: 'SET_HUTS_TO_REGIONS',
     payload: hutsToRegions

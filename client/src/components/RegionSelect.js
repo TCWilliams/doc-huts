@@ -2,22 +2,26 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Select from 'react-select';
 
+import Spinner from './Spinner'
+
 import { selectRegion } from '../actions'
 
 class RegionSelect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectOptions: []
+      selectOptions: [],
+      selectedValue: null,
     }
   }
 
-  handleSelectedRegionChange = ({ value }) => {
-    this.props.selectRegion(value)
+  handleSelectedRegionChange = ( option ) => {
+    this.props.selectRegion(option.value)
+    this.setState({selectedValue: option})
   }
 
   componentDidUpdate(prevProps) {
-    
+    console.log('componentDidUpdate', this.state.selectedValue)
     if (!prevProps.regions && this.props.regions) {
       const options = []
       for (const item of this.props.regions.sort()) {
@@ -36,15 +40,15 @@ class RegionSelect extends React.Component {
       return (
         <div>
           <Select
-            value={this.props.selectedRegion}
+            placeholder="Select region"
+            value={this.state.selectedValue}
             onChange={this.handleSelectedRegionChange}
-            options={this.state.selectOptions}
+            options={this.state.selectOptions} 
           />
-          Regions
         </div>
       );
     }
-    return <div></div>
+    return <Spinner text={'Retrieving hut data'} />
   }
 }
 

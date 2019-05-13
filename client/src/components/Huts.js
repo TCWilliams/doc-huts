@@ -40,9 +40,11 @@ class Huts extends React.Component {
     const huts = this.props.hutsToRegions[this.props.selectedRegion]
     return huts.map(e => {
       return (
-        <div key={e.assetId}
-          onClick={() => this.selectHutHandler(e)}>
-          <span>
+        <div id="hut" 
+             key={e.assetId}
+             hover="cursor-pointer"
+             onClick={() => this.selectHutHandler(e)}>
+          <span className={this.props.selectedHut && (e.assetId === this.props.selectedHut.assetId) ? 'selected-hut': null}>
             {e.name}
           </span>
         </div>
@@ -53,7 +55,11 @@ class Huts extends React.Component {
 
   render() {
     if (this.props.selectedRegion) {
-      return this.buildHutDisplay()
+      return (
+        <div className="huts-container">
+          {this.buildHutDisplay()}
+        </div>
+      )
     }
     return <div></div>
   }

@@ -1,22 +1,7 @@
 {
-  "name": "doc-huts",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd api && node ./bin/www",
     "heroku-postbuild": "cd client && npm install && npm run build" 
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TCWilliams/doc-huts.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TCWilliams/doc-huts/issues"
-  },
-  "homepage": "https://github.com/TCWilliams/doc-huts#readme"
-}
+  }

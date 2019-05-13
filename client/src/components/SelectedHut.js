@@ -48,9 +48,11 @@ class selectedHut extends React.Component {
               </tr>
               <tr>
                 <td colSpan="2">
-                
+                  <a href={`https://www.doc.govt.nz/map/index.html?banner=0&layerlist=0&base=Topo&layers=Campsites,Huts,All%20tracks&extent=${hut.x},${hut.y},2193,7&search=Huts:${hut.assetId}`} 
+                     target="_blank"
+                     rel="noopener noreferrer">
                     Open www.doc.govt.nz map in new tab
-                
+                  </a>
                 </td>
               </tr>
             </tbody>

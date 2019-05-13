@@ -1,34 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import Spinner from './Spinner'
-
-import { loadHuts } from '../actions'
-
+import Huts from './Huts'
+import RegionSelect from './RegionSelect'
+// import Region from './Region'
 
 class App extends React.Component {
-
-  componentDidMount() {
-    this.props.loadHuts()
-  }
 
   render() {
     return (
       <div>
-        App
-    </div>
+        <RegionSelect />
+        <Huts />
+      </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    huts: state.huts,
-  }
-}
-export default connect(
-  mapStateToProps,
-  {
-    loadHuts,
-  }
-)(App)
+export default App

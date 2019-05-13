@@ -1,12 +1,44 @@
 import axios from 'axios'
-import config from '../config'
 
-export const loadHuts = location => async dispatch => {
-  const { data } = await axios.post('http://localhost:5000/huts', {})
-  
-  console.log('data', data)
+
+export const loadAllHuts = () => async dispatch => {
+  const { data } = await axios.post('http://localhost:5000/huts/all', {})
   dispatch({
     type: 'SET_HUTS',
+    payload: data
+  })
+}
+
+export const setRegions = (regions) => {
+  return {
+    type: 'SET_REGIONS',
+    payload: regions
+  }
+}
+
+export const setHutsToRegions = (hutsToRegions) => {
+  return {
+    type: 'SET_HUTS_TO_REGIONS',
+    payload: hutsToRegions
+  }
+}
+
+export const selectRegion = (region) => {
+  console.log('selectRegion', region)
+  return {
+    type: 'SELECT_REGION',
+    payload: region
+  }
+}
+
+export const selectHut = (id) => async dispatch => {
+  console.log('selectHut', id)
+  const { data } = await axios.post('http://localhost:5000/huts/detail', {
+    id
+  })
+  console.log('select hut', data)
+  dispatch({
+    type: 'SELECT_HUT',
     payload: data
   })
 }

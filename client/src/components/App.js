@@ -21,7 +21,7 @@ class App extends React.Component {
           <span className="col-sm-8">
             <SelectedHut />
           </span>
-        </div>
+        </div> 
       </div>
     )
   }
